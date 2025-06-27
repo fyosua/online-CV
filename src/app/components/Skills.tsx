@@ -1,10 +1,10 @@
 // src/app/components/Skills.tsx
 
 import React from 'react';
-import { 
-  HiCode, 
-  HiServer, 
-  HiDesktopComputer, 
+import {
+  HiCode,
+  HiServer,
+  HiDesktopComputer,
   HiDatabase,
   HiAdjustments
 } from 'react-icons/hi';
@@ -58,23 +58,24 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-gray-800">
+    <section id="skills" className="py-20 bg-background"> {/* Before: bg-white dark:bg-gray-800 */}
       <div className="container mx-auto px-4">
         <h2 className="section-title">Skills & Expertise</h2>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
-            <div 
-              key={index} 
-              className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            <div
+              key={index}
+              className="bg-muted p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300" // Before: bg-gray-50 dark:bg-gray-700
             >
               <div className="flex items-center mb-4">
+                {/* The icon itself uses text-primary, which is now theme-aware! */}
                 {category.icon}
-                <h3 className="text-xl font-bold ml-4 text-gray-800 dark:text-white">{category.title}</h3>
+                <h3 className="text-xl font-bold ml-4 text-foreground">{category.title}</h3> {/* Before: text-gray-800 dark:text-white */}
               </div>
               <ul className="space-y-3">
                 {category.skills.map((skill, i) => (
-                  <li key={i} className="flex items-center text-gray-700 dark:text-gray-300">
-                    <div className="text-primary dark:text-primary-dark mr-3 text-lg">
+                  <li key={i} className="flex items-center text-muted-foreground"> {/* Before: text-gray-700 dark:text-gray-300 */}
+                    <div className="text-primary mr-3 text-lg"> {/* The icon color */}
                       {skill.icon}
                     </div>
                     <span>{skill.name}</span>
