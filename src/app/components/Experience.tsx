@@ -67,31 +67,32 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-muted"> {/* Before: bg-gray-50 dark:bg-gray-900 */}
+    <section id="experience" className="py-20 bg-muted"> {/* USE THEME COLOR */}
       <div className="container mx-auto px-4">
         <h2 className="section-title">Work Experience</h2>
-        <div className="mt-12 space-y-12">
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-8 sm:pl-12">
-              {/* Vertical timeline bar */}
-              <div className="absolute left-2 sm:left-4 top-2 h-full border-l-2 border-primary"></div> {/* Before: border-primary dark:border-primary-dark */}
-              {/* Timeline circle */}
-              <div className="absolute left-0 sm:left-2.5 top-2 w-4 h-4 bg-primary border-4 border-muted"></div> {/* Before: bg-primary... border-gray-50... */}
-
-              <div className="mb-2">
-                <h3 className="text-xl sm:text-2xl font-bold text-foreground">{exp.role}</h3> {/* Before: text-gray-800 dark:text-white */}
-                <p className="text-md font-semibold text-primary"> {/* Before: text-primary dark:text-primary-dark */}
-                  {exp.company} <span className="text-muted-foreground font-normal">📍 {exp.location}</span> {/* Before: text-gray-600... */}
-                </p>
-                {/* ... other elements ... */}
+        <div className="mt-12">
+          {/* RESTORED ORIGINAL EXPERIENCE STRUCTURE */}
+          <div className="relative border-l-4 border-primary ml-4">
+            {experiences.map((exp, index) => (
+              <div key={index} className="mb-10 ml-8">
+                <div className="absolute w-6 h-6 bg-primary rounded-full -left-3.5 border-4 border-background"></div>
+                <p className="text-sm font-semibold text-primary">{exp.date}</p>
+                <h3 className="text-2xl font-bold text-foreground">{exp.role}</h3>
+                <h4 className="text-lg font-semibold text-muted-foreground">
+                  {exp.company} - {exp.location}
+                </h4>
+                <p className="mt-2 text-foreground italic">{exp.summary}</p>
+                <ul className="mt-4 list-disc list-inside space-y-2 text-muted-foreground">
+                  {exp.responsibilities.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
               </div>
-              {/* ... etc */}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
-
 export default Experience;
