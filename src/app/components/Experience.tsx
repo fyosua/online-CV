@@ -4,71 +4,61 @@ import React from 'react';
 
 // Paste the updated 'experiences' array from Step 1 here
 const experiences = [
-  // Technical Specialist - TDCX (Rehired)
   {
     role: 'Technical Specialist - Google Technical Solutions (Rehired)',
     company: 'TDCX',
     location: 'Kuala Lumpur',
     date: 'Sep 2024 - Present',
-    [cite_start]summary: 'Rehired to resume responsibilities as a Technical Specialist, highlighting my proven expertise and performance in Google Tracking solutions.', // [cite: 5]
+    summary: 'Rehired to resume responsibilities as a Technical Specialist, highlighting my proven expertise and performance in Google Tracking solutions.',
     responsibilities: [
-      [cite_start]'Continue specializing in implementing and managing Google Tracking tools, including Google Ads, Google Analytics, Google Tag Manager, and Google Merchant Center.', // [cite: 5]
-      [cite_start]'Maintain exceptional performance in consulting, technical support, and communication, reinforcing client trust and satisfaction.', // [cite: 5]
+      'Continue specializing in implementing and managing Google Tracking tools, including Google Ads, Google Analytics, Google Tag Manager, and Google Merchant Center.',
+      'Maintain exceptional performance in consulting, technical support, and communication, reinforcing client trust and satisfaction.',
     ],
   },
-  // Technical Hosting Support Engineer - PT. World Host Group
   {
     role: 'Technical Hosting Support Engineer',
     company: 'PT. World Host Group',
     location: 'Bali',
-    [cite_start]date: 'Feb 2024 - Aug 2024', // [cite: 5]
-    [cite_start]summary: 'I excel at promptly resolving diverse client inquiries across hosting services, ensuring uninterrupted operations for our valued clients.', // [cite: 5]
+    date: 'Feb 2024 - Aug 2024',
+    summary: 'I excel at promptly resolving diverse client inquiries across hosting services, ensuring uninterrupted operations for our valued clients.',
     responsibilities: [
-      [cite_start]'Offered proficient technical support for domains, hosting (shared/VPS), control panels (cPanel, Plesk), website errors, mail servers, and DNS clusters.', // [cite: 5]
-      [cite_start]'Utilized advanced ticketing systems to manage and prioritize client inquiries efficiently, ensuring prompt resolution.', // [cite: 5]
-      [cite_start]'Engaged with the global English-speaking market through diverse communication channels, including ticketing, calls, and live chat support.', // [cite:5]
+      'Offered proficient technical support for domains, hosting (shared/VPS), control panels (cPanel, WHM, Plesk, SolidCP), website errors, mail servers, and DNS clusters.',
+      'Utilized advanced ticketing systems to manage and prioritize client inquiries efficiently, ensuring prompt resolution.',
+      'Engaged with the global English-speaking market through diverse communication channels, including ticketing, calls, and live chat support.',
     ],
   },
-  // Technical Specialist - TDCX
   {
     role: 'Technical Specialist - Google Technical Solutions',
     company: 'TDCX',
     location: 'Kuala Lumpur',
-    [cite_start]date: 'Sep 2022 - Nov 2023', // [cite: 5]
-    [cite_start]summary: 'Dedicated myself to specializing in Google Tracking products.', // [cite: 5]
+    date: 'Sep 2022 - Nov 2023',
+    summary: 'Dedicated myself to specializing in Google Tracking products.',
     responsibilities: [
-      [cite_start]'Proficiently implemented Google Tracking Tools, including Google Ads, Google Analytics, Google Tag Manager, and Google Merchant Center.', // [cite: 5]
-      [cite_start]'Excelled in providing consulting services with strong business communication and product pitching abilities.', // [cite: 5]
+      'Proficiently implemented Google Tracking Tools, including Google Ads, Google Analytics, Google Tag Manager, and Google Merchant Center.',
+      'Excelled in providing consulting services with strong business communication and product pitching abilities.',
     ],
   },
-  // Back End Developer - PT. Uniktif Media (Unictive)
   {
     role: 'Back End Developer',
     company: 'PT. Uniktif Media (Unictive)',
     location: 'Jakarta',
-    [cite_start]date: 'Feb 2021 - Feb 2022', // [cite: 6]
-    [cite_start]summary: 'Designed and enhanced server-side applications, with proficiency in PHP, JavaScript, and frameworks like Laravel and React.', // [cite: 6]
+    date: 'Feb 2021 - Feb 2022',
+    summary: 'Designed and enhanced server-side applications, with proficiency in PHP, JavaScript, and frameworks like Laravel and React.',
     responsibilities: [
-      [cite_start]'Prioritized seamless API integration between the website\'s back-end and front-end to optimize user experience.', // [cite: 6]
-      [cite_start]'Skilled in deploying websites via Nginx, configuring SSL, and occasionally using PM2 for deployment management.', // [cite: 6]
-      [cite_start]'Successfully implemented mail server setups for CMS systems, facilitating user management, invitations, and order notifications.', // [cite: 6]
-      [cite_start]'Expertise in data infrastructure enables swift and accurate analysis of technical documents.', // [cite: 6]
+      'Prioritized seamless API integration between the website\'s back-end and front-end to optimize user experience.',
+      'Skilled in deploying websites via Nginx, configuring SSL, and occasionally using PM2 for deployment management.',
+      'Successfully implemented mail server setups for CMS systems, facilitating user management, invitations, and order notifications.',
+      'Expertise in data infrastructure enables swift and accurate analysis of technical documents.',
     ],
   },
-  // IT Support - PT Dewaweb
   {
     role: 'IT Support',
     company: 'PT Dewaweb',
     location: 'Jakarta',
-    [cite_start]date: 'Feb 2018 - Feb 2019', // [cite: 6]
-    [cite_start]summary: 'Committed to providing high-quality IT support, delivering technical assistance via phone and email within a CRM system.', // [cite: 6]
+    date: 'Feb 2018 - Feb 2019',
+    summary: 'Committed to providing high-quality IT support, delivering technical assistance via phone and email within a CRM system.',
     responsibilities: [
-      [cite_start]'Troubleshot and resolved issues within server products including cPanel, WHMPanel, CloudFlare, and SSL, primarily for WordPress websites.', // [cite: 6]
-      [cite_start]'Skilled in utilizing CRM systems like WHMCS in hosting support environments.', // [cite: 6]
-      [cite_start]'Possess knowledge in domain management, DNS record systems, and various payment platforms.', // [cite: 6]
-    ],
-  },
-];
+      'Troubleshot and
 
 const Experience = () => {
   return (
