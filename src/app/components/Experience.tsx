@@ -67,19 +67,19 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-muted"> {/* USE THEME COLOR */}
+    <section id="experience" className="py-20 bg-muted">
       <div className="container mx-auto px-4">
         <h2 className="section-title">Work Experience</h2>
         <div className="mt-12">
-          {/* RESTORED ORIGINAL EXPERIENCE STRUCTURE */}
           <div className="relative border-l-4 border-primary ml-4">
             {experiences.map((exp, index) => (
               <div key={index} className="mb-10 ml-8">
                 <div className="absolute w-6 h-6 bg-primary rounded-full -left-3.5 border-4 border-background"></div>
                 <p className="text-sm font-semibold text-primary">{exp.date}</p>
                 <h3 className="text-2xl font-bold text-foreground">{exp.role}</h3>
+                {/* MODIFICATION IS ON THE LINE BELOW */}
                 <h4 className="text-lg font-semibold text-muted-foreground">
-                  {exp.company} - {exp.location}
+                  {exp.company} - 📍 {exp.location}
                 </h4>
                 <p className="mt-2 text-foreground italic">{exp.summary}</p>
                 <ul className="mt-4 list-disc list-inside space-y-2 text-muted-foreground">
@@ -95,4 +95,5 @@ const Experience = () => {
     </section>
   );
 };
+
 export default Experience;
