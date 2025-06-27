@@ -34,7 +34,7 @@ export default function Home() {
             </div>
             <div className="md:w-1/2 flex justify-center">
               <Image
-                src="/images/website_logo.jpeg"
+                src="/images/photo_profile.jpg"
                 alt="Yosua Ferdian"
                 width={400}
                 height={400}
