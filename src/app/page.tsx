@@ -18,7 +18,7 @@ export default function Home() {
                 Hi, I'm <span className="text-primary">Yosua Ferdian</span>
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold mb-6">
-                Technical Specialist & Web Developer
+                Google Technical Solutions & Web FullStack Developer
               </h2>
               <p className="text-lg mb-8">
                 Expert in Google Tracking solutions and web development.
