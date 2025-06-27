@@ -1,9 +1,9 @@
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 bg-gray-100 dark:bg-gray-900">
+    <section id="contact" className="py-20 bg-gray-100 dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <h2 className="section-title">Get In Touch</h2>
-        <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+        <div className="max-w-2xl mx-auto bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
           <form className="space-y-6">
             <div>
               <label htmlFor="name" className="block mb-2">Name</label>
