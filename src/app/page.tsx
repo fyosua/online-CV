@@ -15,7 +15,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Hi, I'm <span className="text-primary">Yosua Ferdian</span>
+                Hi, I'm <span className="text-primary dark:text-secondary">Yosua Ferdian</span>
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold mb-6">
                 Google Technical Solutions & Web FullStack Developer
@@ -38,7 +38,7 @@ export default function Home() {
                 alt="Yosua Ferdian"
                 width={400}
                 height={400}
-                className="rounded-full border-4 border-primary object-cover aspect-square"
+                className="rounded-full border-4 border-primary dark:border-secondary object-cover aspect-square"
                 priority
               />
             </div>

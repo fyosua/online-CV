@@ -74,7 +74,7 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div key={index} className="relative pl-8 sm:pl-12">
               {/* Vertical timeline bar */}
-              <div className="absolute left-2 sm:left-4 top-2 h-full border-l-2 border-primary dark:border-primary-dark"></div>
+              <div className="absolute left-2 sm:left-4 top-2 h-full border-l-2 border-primary dark:border-secondary"></div>
               {/* Timeline circle */}
               <div className="absolute left-0 sm:left-2.5 top-2 w-4 h-4 bg-primary dark:bg-primary-dark rounded-full border-4 border-gray-50 dark:border-gray-900"></div>
 

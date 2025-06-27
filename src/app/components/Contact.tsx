@@ -74,15 +74,15 @@ export default function Contact() {
           <form ref={form} onSubmit={sendEmail} className="space-y-6">
             <div>
               <label htmlFor="name" className="block mb-2">Name</label>
-              <input type="text" id="name" name="user_name" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary" required />
+              <input type="text" id="name" name="user_name" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-secondary" required />
             </div>
             <div>
               <label htmlFor="email" className="block mb-2">Email</label>
-              <input type="email" id="email" name="user_email" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary" required />
+              <input type="email" id="email" name="user_email" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-secondary" required />
             </div>
             <div>
               <label htmlFor="message" className="block mb-2">Message</label>
-              <textarea id="message" name="message" rows={5} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary" required></textarea>
+              <textarea id="message" name="message" rows={5} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-secondary" required></textarea>
             </div>
 
             <ReCAPTCHA
@@ -110,19 +110,19 @@ export default function Contact() {
           <div className="mt-8 text-center border-t border-gray-200 dark:border-gray-600 pt-6">
             <p className="text-gray-600 dark:text-gray-300 mb-4">Or connect with me directly:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
-              <a href="mailto:ferdianyosua@gmail.com" className="flex items-center justify-center gap-2 text-primary font-medium hover:underline">
+              <a href="mailto:ferdianyosua@gmail.com" className="flex items-center justify-center gap-2 text-primary dark:text-secondary font-medium hover:underline">
                 <HiOutlineMail size={20} />
                 <span>ferdianyosua@gmail.com</span>
               </a>
-              <a href="https://www.linkedin.com/in/yosua-ferdian-a1a929116/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-primary font-medium hover:underline">
+              <a href="https://www.linkedin.com/in/yosua-ferdian-a1a929116/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-primary dark:text-secondary font-medium hover:underline">
                 <FaLinkedin size={20} />
                 <span>Yosua Ferdian</span>
               </a>
-              <a href="https://wa.me/6281290216083" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-primary font-medium hover:underline">
+              <a href="https://wa.me/6281290216083" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-primary dark:text-secondary font-medium hover:underline">
                 <FaWhatsapp size={20} />
                 <span>+62 812 9021 6083</span>
               </a>
-              <a href="https://wa.me/601127817121" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-primary font-medium hover:underline">
+              <a href="https://wa.me/601127817121" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 text-primary dark:text-secondary font-medium hover:underline">
                 <FaWhatsapp size={20} />
                 <span>+60 11 2781 7121</span>
               </a>

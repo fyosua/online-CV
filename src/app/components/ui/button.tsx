@@ -11,11 +11,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         className={`
           inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors
-          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary dark:focus-visible:ring-secondary
           disabled:opacity-50 disabled:pointer-events-none
           ${
             variant === 'default'
-              ? 'bg-primary text-white hover:bg-primary/90'
+              ? 'bg-primary text-white hover:bg-secondary'
               : 'bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800'
           }
           ${
