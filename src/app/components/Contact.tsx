@@ -1,40 +1,68 @@
-'use client'; // Add this at the top, as we are using state and effects
+'use client';
 
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { HiOutlineMail } from 'react-icons/hi';
 import { FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [statusMessage, setStatusMessage] = useState('');
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
 
-    if (form.current) {
-      emailjs
-        .sendForm(
+    if (!recaptchaToken) {
+      setStatus('error');
+      setStatusMessage('Please complete the reCAPTCHA.');
+      return;
+    }
+
+    try {
+      // 1. Verify reCAPTCHA token with our API route
+      const recaptchaResponse = await fetch('/api/verify-recaptcha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: recaptchaToken }),
+      });
+
+      const recaptchaData = await recaptchaResponse.json();
+
+      if (!recaptchaData.success) {
+        setStatus('error');
+        setStatusMessage('reCAPTCHA verification failed. Please try again.');
+        recaptchaRef.current?.reset(); // Reset reCAPTCHA
+        setRecaptchaToken(null);
+        return;
+      }
+
+      // 2. If reCAPTCHA is successful, send the email
+      if (form.current) {
+        await emailjs.sendForm(
           process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
           process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
           form.current,
           process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-        )
-        .then(
-          (result) => {
-            console.log('SUCCESS!', result.text);
-            setStatus('success');
-            setStatusMessage('Message sent successfully!');
-            form.current?.reset();
-          },
-          (error) => {
-            console.log('FAILED...', error.text);
-            setStatus('error');
-            setStatusMessage('Failed to send message. Please try again.');
-          }
         );
+        setStatus('success');
+        setStatusMessage('Message sent successfully!');
+        form.current?.reset(); // Reset form fields
+        recaptchaRef.current?.reset(); // Reset reCAPTCHA
+        setRecaptchaToken(null);
+      }
+    } catch (error) {
+      console.error('FAILED...', error);
+      setStatus('error');
+      setStatusMessage('An unexpected error occurred. Please try again.');
+      recaptchaRef.current?.reset(); // Reset reCAPTCHA
+      setRecaptchaToken(null);
     }
   };
 
@@ -46,38 +74,33 @@ export default function Contact() {
           <form ref={form} onSubmit={sendEmail} className="space-y-6">
             <div>
               <label htmlFor="name" className="block mb-2">Name</label>
-              <input
-                type="text"
-                id="user_name"
-                name="user_name" // This name must match the variable in your EmailJS template
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
-                required
-              />
+              <input type="text" id="name" name="user_name" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary" required />
             </div>
             <div>
               <label htmlFor="email" className="block mb-2">Email</label>
-              <input
-                type="email"
-                id="user_email"
-                name="user_email" // This name must match the variable in your EmailJS template
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
-                required
-              />
+              <input type="email" id="email" name="user_email" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary" required />
             </div>
             <div>
               <label htmlFor="message" className="block mb-2">Message</label>
-              <textarea
-                id="message"
-                name="message" // This name must match the variable in your EmailJS template
-                rows={5}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
-                required
-              ></textarea>
+              <textarea id="message" name="message" rows={5} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary" required></textarea>
             </div>
-            <button type="submit" className="btn-primary w-full" disabled={status === 'sending'}>
+
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+              onChange={(token) => setRecaptchaToken(token)}
+              onExpired={() => setRecaptchaToken(null)}
+            />
+
+            <button
+              type="submit"
+              className="btn-primary w-full"
+              disabled={status === 'sending' || !recaptchaToken}
+            >
               {status === 'sending' ? 'Sending...' : 'Send Message'}
             </button>
           </form>
+
           {status !== 'idle' && (
             <div className={`mt-4 text-center p-2 rounded-lg ${status === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
               {statusMessage}
@@ -108,5 +131,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
