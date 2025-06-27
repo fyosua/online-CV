@@ -1,3 +1,6 @@
+import { HiOutlineMail, HiOutlineLink } from 'react-icons/hi';
+import { FaLinkedin } from 'react-icons/fa';
+
 export default function Contact() {
   return (
     <section id="contact" className="py-20 bg-gray-100 dark:bg-gray-800">
@@ -36,12 +39,31 @@ export default function Contact() {
               Send Message
             </button>
           </form>
-          <div className="mt-8 text-center">
-            <p className="text-gray-600">or email me directly at:</p>
-            <a href="mailto:ferdianyosua@gmail.com" className="text-primary font-medium">
-              ferdianyosua@gmail.com
-            </a>
+
+          <div className="mt-8 text-center border-t border-gray-200 dark:border-gray-600 pt-6">
+            <p className="text-gray-600 dark:text-gray-300 mb-4">Or connect with me directly:</p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
+              {/* Email Link */}
+              <a 
+                href="mailto:ferdianyosua@gmail.com" 
+                className="flex items-center gap-2 text-primary font-medium hover:underline"
+              >
+                <HiOutlineMail size={20} />
+                <span>ferdianyosua@gmail.com</span>
+              </a>
+              {/* LinkedIn Link */}
+              <a 
+                href="https://www.linkedin.com/in/yosua-ferdian-a1a929116/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2 text-primary font-medium hover:underline"
+              >
+                <FaLinkedin size={20} />
+                <span>Yosua Ferian</span>
+              </a>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
