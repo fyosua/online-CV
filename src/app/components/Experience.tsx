@@ -58,7 +58,12 @@ const experiences = [
     date: 'Feb 2018 - Feb 2019',
     summary: 'Committed to providing high-quality IT support, delivering technical assistance via phone and email within a CRM system.',
     responsibilities: [
-      'Troubleshot and
+      'Troubleshot and resolved issues within server products including cPanel, WHMPanel, CloudFlare, and SSL, primarily for WordPress websites.',
+      'Skilled in utilizing CRM systems like WHMCS in hosting support environments.',
+      'Possess knowledge in domain management, DNS record systems, and various payment platforms.',
+    ],
+  },
+];
 
 const Experience = () => {
   return (
