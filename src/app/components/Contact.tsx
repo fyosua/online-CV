@@ -48,7 +48,7 @@ export default function Contact() {
               <label htmlFor="name" className="block mb-2">Name</label>
               <input
                 type="text"
-                id="name"
+                id="user_name"
                 name="user_name" // This name must match the variable in your EmailJS template
                 className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
                 required
@@ -58,7 +58,7 @@ export default function Contact() {
               <label htmlFor="email" className="block mb-2">Email</label>
               <input
                 type="email"
-                id="email"
+                id="user_email"
                 name="user_email" // This name must match the variable in your EmailJS template
                 className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary"
                 required
