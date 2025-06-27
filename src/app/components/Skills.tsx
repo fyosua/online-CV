@@ -1,32 +1,92 @@
-export default function Skills() {
-  const skills = [
-    { category: "Google Tools", items: ["Google Ads", "Google Analytics", "Google Tag Manager"] },
-    { category: "Web Development", items: ["HTML/CSS", "JavaScript", "React", "Next.js"] },
-    // Add other skills from your CV
-  ]
+// src/app/components/Skills.tsx
 
+import React from 'react';
+import { 
+  HiCode, 
+  HiServer, 
+  HiDesktopComputer, 
+  HiDatabase,
+  HiAdjustments
+} from 'react-icons/hi';
+import { SiGoogleads, SiGoogleanalytics, SiGoogle, SiNextdotjs, SiLaravel, SiCpanel, SiLinux, SiGit, SiMysql, SiWordpress } from 'react-icons/si';
+
+// Updated and categorized skills data from your CV
+const skillCategories = [
+  {
+    title: 'Google Ecosystem',
+    icon: <SiGoogle className="h-8 w-8 text-primary" />,
+    skills: [
+      { name: 'Google Ads', icon: <SiGoogleads /> },
+      { name: 'Google Analytics', icon: <SiGoogleanalytics /> },
+      { name: 'Google Tag Manager', icon: <HiAdjustments /> },
+      { name: 'Google Merchant Center', icon: <HiDesktopComputer /> },
+    ],
+  },
+  {
+    title: 'Web & Frontend',
+    icon: <HiCode className="h-8 w-8 text-primary" />,
+    skills: [
+      { name: 'Next.JS', icon: <SiNextdotjs /> },
+      { name: 'Laravel', icon: <SiLaravel /> },
+      { name: 'HTML & CSS', icon: <HiCode /> },
+      { name: 'Wordpress', icon: <SiWordpress /> },
+      { name: 'Rest API', icon: <HiCode /> },
+    ],
+  },
+  {
+    title: 'Server & Hosting',
+    icon: <HiServer className="h-8 w-8 text-primary" />,
+    skills: [
+      { name: 'WHM & cPanel', icon: <SiCpanel /> },
+      { name: 'Linux System Admin', icon: <SiLinux /> },
+      { name: 'Network Infrastructure', icon: <HiServer /> },
+      { name: 'System Monitoring', icon: <HiDesktopComputer /> },
+      { name: 'Bash Scripting', icon: <HiCode /> },
+    ],
+  },
+  {
+    title: 'Tools & General Tech',
+    icon: <HiDatabase className="h-8 w-8 text-primary" />,
+    skills: [
+      { name: 'Git', icon: <SiGit /> },
+      { name: 'MySQL', icon: <SiMysql /> },
+      { name: 'Technical Support', icon: <HiDesktopComputer /> },
+      { name: 'Payment Platforms', icon: <HiDesktopComputer /> },
+    ],
+  },
+];
+
+const Skills = () => {
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20 bg-white dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <h2 className="section-title">Skills & Expertise</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((skill, index) => (
-            <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-4">{skill.category}</h3>
-              <div className="flex flex-wrap gap-2">
-                {skill.items.map((item, i) => (
-                  <span 
-                    key={i}
-                    className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
-                  >
-                    {item}
-                  </span>
-                ))}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skillCategories.map((category, index) => (
+            <div 
+              key={index} 
+              className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="flex items-center mb-4">
+                {category.icon}
+                <h3 className="text-xl font-bold ml-4 text-gray-800 dark:text-white">{category.title}</h3>
               </div>
+              <ul className="space-y-3">
+                {category.skills.map((skill, i) => (
+                  <li key={i} className="flex items-center text-gray-700 dark:text-gray-300">
+                    <div className="text-primary dark:text-primary-dark mr-3 text-lg">
+                      {skill.icon}
+                    </div>
+                    <span>{skill.name}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default Skills;
